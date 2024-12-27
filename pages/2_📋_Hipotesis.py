@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 from src.hipotesis import hipotesis_1, hipotesis_2  # Importa tus funciones de hipótesis
 
 # Carga el DataFrame
