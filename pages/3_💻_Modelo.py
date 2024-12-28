@@ -1,4 +1,4 @@
-# Importar librerías necesarias
+# Importar las librerías necesarias
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -61,7 +61,7 @@ X_pca = pca.fit_transform(X)
 
 # Visualización PCA
 st.subheader("Visualización PCA")
-fig, ax = plt.subplots(figsize=(6, 4))  # Tamaño reducido
+fig, ax = plt.subplots(figsize=(6, 4)) 
 scatter = ax.scatter(X_pca[:, 0], X_pca[:, 1], alpha=0.7, cmap='viridis', edgecolor='k')
 ax.set_title("Reducción de Dimensiones con PCA")
 ax.set_xlabel("Componente Principal 1")
@@ -93,7 +93,7 @@ clusters_pca = kmeans_pca.fit_predict(X_pca)
 
 # Visualización de clusters
 st.subheader("Visualización de Clusters con PCA")
-fig, ax = plt.subplots(figsize=(6, 4))  # Tamaño reducido
+fig, ax = plt.subplots(figsize=(6, 4))  
 scatter = ax.scatter(X_pca[:, 0], X_pca[:, 1], c=clusters_pca, cmap='viridis', alpha=0.7, edgecolor='k')
 ax.set_title(f"Clusters con PCA (k=4)")
 ax.set_xlabel("Componente Principal 1")
@@ -103,12 +103,11 @@ st.pyplot(fig)
 
 # ---------------- Visualización 3D ----------------
 st.subheader("Gráfico 3D de las Características Originales")
-# Selector de columnas para el gráfico 3D
 x_col = st.selectbox("Selecciona la columna para el eje X", numeric_features)
 y_col = st.selectbox("Selecciona la columna para el eje Y", numeric_features)
 z_col = st.selectbox("Selecciona la columna para el eje Z", numeric_features)
 
-fig = plt.figure(figsize=(8, 6))  # Tamaño reducido
+fig = plt.figure(figsize=(8, 6))  
 ax = fig.add_subplot(111, projection='3d')
 ax.scatter(df[x_col], df[y_col], df[z_col], c=clusters_pca, cmap='viridis', marker='o')
 ax.set_xlabel(x_col)
