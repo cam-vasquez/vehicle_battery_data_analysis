@@ -48,7 +48,7 @@ if file_path is not None:
 
         if st.button("Clasificar Duración de Carga"):
             st.write("Clasificando las duraciones de carga...")
-            data['Prediction'] = data.apply(lambda row: few_shot_duration_classification(row['Vehicle Model'], row['Charging Duration']), axis=1)
+            data['Prediction'] = data.apply(lambda row: few_shot_duration_classification(row['Vehicle Model'], row['Charging Duration (hours)']), axis=1)
 
             data['True Classification'] = data['True Classification'].str.strip().str.lower()
             data['Prediction'] = data['Prediction'].str.strip().str.lower()
