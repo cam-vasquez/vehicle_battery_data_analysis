@@ -7,34 +7,50 @@ import os
 
 # Cargar la API Key 
 openai.api_key = st.secrets["openai"]["api_key"]
-
 # Título de la página
 st.title("Prompting con OpenAI - Few-Shot y Chain of Thought")
 
 # Descripción introductoria
 st.markdown("""
 ### ¿Qué hace esta aplicación?
-Esta herramienta interactiva está diseñada para mostrar cómo se pueden utilizar técnicas avanzadas de prompting con modelos de OpenAI para resolver tareas específicas.
+Esta herramienta interactiva está diseñada específicamente para empresas del sector de **estaciones de carga de vehículos eléctricos**. 
+Su propósito es ofrecer insights estratégicos y analíticos mediante el uso de modelos de inteligencia artificial avanzada de OpenAI.
 
-- **Few-Shot Prompting**: Una técnica en la que se proporcionan ejemplos específicos al modelo para que aprenda cómo clasificar o realizar tareas similares basadas en los ejemplos dados.
-- **Chain of Thought Prompting**: Permite al modelo razonar paso a paso sobre un problema o una hipótesis planteada.
+### ¿A quién está dirigida?
+La aplicación está orientada a:
+- **Alta gerencia**: Para tomar decisiones basadas en datos procesados inteligentemente.
+- **Departamentos de operaciones y análisis**: Para obtener análisis detallados y clasificaciones rápidas de métricas clave.
+
+### Funcionalidades principales
+1. **Few-Shot Prompting**: 
+   - Clasifica automáticamente datos relevantes, como la duración de las sesiones de carga, en categorías como "Corta", "Media" y "Larga".
+   - Ayuda a entender patrones de uso en las estaciones de carga.
+
+2. **Chain of Thought Prompting**:
+   - Analiza hipótesis estratégicas con razonamiento paso a paso.
+   - Por ejemplo, identificar qué estaciones de carga generan más ingresos o tienen mayor afluencia de usuarios.
 
 ### ¿Cómo usar esta aplicación?
-1. **Carga tu archivo CSV** utilizando el botón proporcionado. 
-   - Asegúrate de que tu archivo contiene datos relevantes para la tarea, como columnas de texto o valores numéricos.
+1. **Carga tu archivo CSV**: 
+   - Debe incluir columnas como `Vehicle Model`, `Charging Duration (hours)`, y cualquier otra métrica relevante.
+   - La herramienta procesará estos datos para generar clasificaciones o análisis detallados.
+
 2. **Selecciona el tipo de prompting**:
-   - **Few-Shot Prompting**: Para clasificar datos con base en ejemplos proporcionados.
-   - **Chain of Thought Prompting**: Para obtener un razonamiento detallado y paso a paso.
-3. Sigue las instrucciones específicas para cada técnica.
+   - **Few-Shot Prompting**: Para clasificar datos según patrones de carga.
+   - **Chain of Thought Prompting**: Para realizar un análisis estratégico detallado de hipótesis.
 
-### Usabilidad
-Ideal para:
-- Educación: Aprende sobre las capacidades de los modelos de lenguaje.
-- Investigación: Experimenta con técnicas avanzadas de prompting.
-- Exploración de datos: Obtén insights basados en datos cargados.
+3. **Interpreta los resultados**:
+   - Obtendrás reportes claros con métricas clave como precisión, clasificaciones específicas y análisis paso a paso.
 
-¡Carga tus datos y explora el poder de las técnicas de prompting con OpenAI!
+### Usabilidad estratégica
+Esta aplicación te permite:
+- **Optimizar operaciones**: Entender qué estaciones tienen tiempos de carga más eficientes o dónde se requiere mejorar la infraestructura.
+- **Tomar decisiones informadas**: Basarte en datos procesados por IA para priorizar inversiones y estrategias.
+- **Identificar tendencias**: Descubrir patrones en los datos de uso de estaciones de carga.
+
+¡Comienza cargando tus datos para explorar el poder del análisis impulsado por IA!
 """)
+
 
 # Cargar datos desde un CSV
 file_path = st.file_uploader("Sube tu archivo CSV", type=["csv"])
