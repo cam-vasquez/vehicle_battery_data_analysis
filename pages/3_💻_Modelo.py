@@ -118,8 +118,6 @@ ax.set_zlabel(z_col)
 ax.set_title("Gráfico 3D con Clustering")
 st.pyplot(fig)
 
-
-
 # Nueva sección: Árbol de Decisión
 st.header("Modelo de Árbol de Decisión")
 
@@ -153,7 +151,7 @@ if features and target:
 
     # Visualizar el árbol de decisión
     st.subheader("Visualización del Árbol de Decisión")
-    fig, ax = plt.subplots(figsize=(20, 10))
+    fig, ax = plt.subplots(figsize=(10, 8))
     plot_tree(tree_model, feature_names=features, filled=True, rounded=True, ax=ax)
     st.pyplot(fig)
 
