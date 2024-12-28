@@ -7,5 +7,5 @@ numpy
 scikit-learn
 catboost
 scipy
-openai
 python-dotenv
+openai==0.28
