@@ -3,6 +3,7 @@ streamlit
 seaborn
 plotly
 matplotlib
-scikit-learn
 numpy
-
+scikit-learn
+catboost
+scipy
