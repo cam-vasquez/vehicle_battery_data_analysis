@@ -12,15 +12,6 @@ st.title("Prompting con OpenAI - Few-Shot y Chain of Thought")
 
 # Descripción introductoria
 st.markdown("""
-### ¿Qué hace esta aplicación?
-Esta herramienta interactiva está diseñada específicamente para empresas del sector de **estaciones de carga de vehículos eléctricos**. 
-Su propósito es ofrecer insights estratégicos y analíticos mediante el uso de modelos de inteligencia artificial avanzada de OpenAI.
-
-### ¿A quién está dirigida?
-La aplicación está orientada a:
-- **Alta gerencia**: Para tomar decisiones basadas en datos procesados inteligentemente.
-- **Departamentos de operaciones y análisis**: Para obtener análisis detallados y clasificaciones rápidas de métricas clave.
-
 ### Funcionalidades principales
 1. **Few-Shot Prompting**: 
    - Clasifica automáticamente datos relevantes, como la duración de las sesiones de carga, en categorías como "Corta", "Media" y "Larga".
