@@ -157,3 +157,7 @@ if features and target:
 
 else:
     st.warning("Por favor, selecciona las características y la variable objetivo para entrenar el modelo.")
+
+    st.subheader("Insights")
+    st.markdown("#### Inshights para la toma de decisiones")
+    st.markdown("[Información relevante para la toma de decisiones estratégicas y operativas.](https://www.canva.com/design/DAGam41Jeo0/bLYEBzL38Wo99UStwrAN6A/view?utm_content=DAGam41Jeo0&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h9ff319df82)")

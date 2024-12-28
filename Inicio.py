@@ -74,3 +74,16 @@ with col6:
     st.subheader("Promptig")
     st.markdown("#### Uso de Few - Shots y Chain of Thought Promtings")
     st.markdown("Uso de differentes prompting approaches, con el fin de interactuar con OpenAI y el modelo de datos.")
+
+    # 5. Insights 
+col5, col6 = st.columns([2, 2])
+with col5:
+    ruta_imagen_modelo = "utils/picture5.png" 
+    if os.path.exists(ruta_imagen_modelo):
+        st.image(ruta_imagen_modelo, caption="Insights", width=250)
+    else:
+        st.warning(f"No se encontró la imagen en la ruta: {ruta_imagen_modelo}")
+with col6:
+    st.subheader("Insights")
+    st.markdown("#### Inshights para la toma de decisiones")
+    st.markdown("[Información relevante para la toma de decisiones estratégicas y operativas.](https://www.canva.com/design/DAGam41Jeo0/bLYEBzL38Wo99UStwrAN6A/view?utm_content=DAGam41Jeo0&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h9ff319df82)")
