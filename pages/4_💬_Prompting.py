@@ -3,7 +3,7 @@ import pandas as pd
 from sklearn.metrics import classification_report, accuracy_score
 import streamlit as st
 
-# Configura tu API Key directamente
+# Configuración de la API Key de OpenAI
 openai.api_key = "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"
 
 # Título de la página
