@@ -11,7 +11,11 @@ openai.api_key = st.secrets["openai"]["api_key"]
 st.title("Prompting con OpenAI - Few-Shot y Chain of Thought")
 
 # Descripción introductoria
-st.markdown("""
+st.markdown("""   
+### ¿Qué hace esta aplicación?
+Esta herramienta interactiva está diseñada específicamente para empresas del sector de **estaciones de carga de vehículos eléctricos**. 
+Su propósito es ofrecer insights estratégicos y analíticos mediante el uso de modelos de inteligencia artificial avanzada de OpenAI.
+
 ### Funcionalidades principales
 1. **Few-Shot Prompting**: 
    - Clasifica automáticamente datos relevantes, como la duración de las sesiones de carga, en categorías como "Corta", "Media" y "Larga".
