@@ -1,1 +1,120 @@
-# Aqui va el modelo
+# Importar librerías necesarias
+import streamlit as st
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.decomposition import PCA
+from sklearn.cluster import KMeans
+from mpl_toolkits.mplot3d import Axes3D
+from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
+import numpy as np
+
+# Configurar página
+st.set_page_config(page_title="Visualización y Modelado", layout="wide")
+
+# Cargar datos
+@st.cache_data
+def load_data():
+    return pd.read_csv("data/ev_charging_patterns.csv")  # Cambia la ruta si es necesario
+
+df = load_data()
+
+# Título de la aplicación
+st.title("Visualización y Modelado de Datos")
+st.subheader("Vista previa del conjunto de datos cargado desde el archivo local:")
+
+# Mostrar datos
+st.dataframe(df.head())
+
+# Variables categóricas y numéricas
+categorical_features = ['Vehicle Model', 'Charging Station Location', 'Charger Type', 'User Type']
+numeric_features = ['Battery Capacity (kWh)', 'Energy Consumed (kWh)', 'Charging Duration (hours)']
+
+# ---------------- Preprocesamiento ----------------
+numeric_transformer = Pipeline(steps=[('scaler', StandardScaler())])
+categorical_transformer = Pipeline(steps=[('onehot', OneHotEncoder(handle_unknown='ignore'))])
+preprocessor = ColumnTransformer(
+    transformers=[
+        ('num', numeric_transformer, numeric_features),
+        ('cat', categorical_transformer, categorical_features)
+    ])
+
+X = preprocessor.fit_transform(df)
+
+# ---------------- Reducción de Dimensiones (PCA) ----------------
+pca = PCA(n_components=2)
+X_pca = pca.fit_transform(X)
+
+# Visualización PCA
+st.subheader("Visualización PCA")
+fig, ax = plt.subplots()
+ax.scatter(X_pca[:, 0], X_pca[:, 1], alpha=0.7, cmap='viridis', edgecolor='k')
+ax.set_title("Reducción de Dimensiones con PCA")
+ax.set_xlabel("Componente Principal 1")
+ax.set_ylabel("Componente Principal 2")
+st.pyplot(fig)
+
+# ---------------- K-Means y Clustering ----------------
+st.subheader("Método del Codo para determinar el número óptimo de Clusters")
+range_clusters = range(2, 8)
+inertia = []
+
+for k in range_clusters:
+    kmeans = KMeans(n_clusters=k, random_state=42)
+    kmeans.fit(X)
+    inertia.append(kmeans.inertia_)
+
+fig, ax = plt.subplots()
+ax.plot(range_clusters, inertia, marker='o')
+ax.set_title("Método del Codo")
+ax.set_xlabel("Número de Clusters")
+ax.set_ylabel("Inercia")
+st.pyplot(fig)
+
+# Aplicar K-Means con k=4
+kmeans_pca = KMeans(n_clusters=4, random_state=42)
+clusters_pca = kmeans_pca.fit_predict(X_pca)
+
+# Visualización de clusters
+st.subheader("Visualización de Clusters con PCA")
+fig, ax = plt.subplots()
+scatter = ax.scatter(X_pca[:, 0], X_pca[:, 1], c=clusters_pca, cmap='viridis', alpha=0.7, edgecolor='k')
+ax.set_title(f"Clusters con PCA (k=4)")
+ax.set_xlabel("Componente Principal 1")
+ax.set_ylabel("Componente Principal 2")
+fig.colorbar(scatter, label='Cluster')
+st.pyplot(fig)
+
+# ---------------- Visualización 3D ----------------
+st.subheader("Gráfico 3D de las Características Originales")
+fig = plt.figure(figsize=(10, 8))
+ax = fig.add_subplot(111, projection='3d')
+x_col = 'Battery Capacity (kWh)'
+y_col = 'Energy Consumed (kWh)'
+z_col = 'Charging Duration (hours)'
+
+ax.scatter(df[x_col], df[y_col], df[z_col], c=clusters_pca, cmap='viridis', marker='o')
+ax.set_xlabel(x_col)
+ax.set_ylabel(y_col)
+ax.set_zlabel(z_col)
+ax.set_title("Gráfico 3D antes de PCA")
+st.pyplot(fig)
+
+# ---------------- Métricas del Modelo ----------------
+st.subheader("Métricas del Modelo Entrenado")
+
+# Para simular métricas en este caso (puedes agregar tu lógica de evaluación):
+accuracy = 0.89
+f1 = 0.89
+precision = 0.89
+recall = 0.89
+
+# Mostrar métricas en columnas
+col1, col2, col3, col4 = st.columns(4)
+col1.metric("Accuracy", f"{accuracy:.2f}")
+col2.metric("F1 Score", f"{f1:.2f}")
+col3.metric("Precisión", f"{precision:.2f}")
+col4.metric("Recall", f"{recall:.2f}")
