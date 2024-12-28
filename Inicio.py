@@ -17,6 +17,7 @@ col1, col2 = st.columns([2, 2])
 
 with col1:
     st.markdown('<div class="column">', unsafe_allow_html=True)
+    #pic 1
     st.image("utils/picture1.png", width=250) 
     st.markdown('</div>', unsafe_allow_html=True)
 
