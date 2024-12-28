@@ -3,13 +3,41 @@ import pandas as pd
 from sklearn.metrics import classification_report, accuracy_score
 import streamlit as st
 import os
-from dotenv import load_dotenv
+
 
 # Cargar la API Key 
 openai.api_key = st.secrets["openai"]["api_key"]
 
 # Título de la página
 st.title("Prompting con OpenAI - Few-Shot y Chain of Thought")
+
+# Título de la página
+st.title("Prompting con OpenAI - Few-Shot y Chain of Thought")
+
+# Descripción introductoria
+st.markdown("""
+### ¿Qué hace esta aplicación?
+Esta herramienta interactiva está diseñada para mostrar cómo se pueden utilizar técnicas avanzadas de prompting con modelos de OpenAI para resolver tareas específicas.
+
+- **Few-Shot Prompting**: Una técnica en la que se proporcionan ejemplos específicos al modelo para que aprenda cómo clasificar o realizar tareas similares basadas en los ejemplos dados.
+- **Chain of Thought Prompting**: Permite al modelo razonar paso a paso sobre un problema o una hipótesis planteada.
+
+### ¿Cómo usar esta aplicación?
+1. **Carga tu archivo CSV** utilizando el botón proporcionado. 
+   - Asegúrate de que tu archivo contiene datos relevantes para la tarea, como columnas de texto o valores numéricos.
+2. **Selecciona el tipo de prompting**:
+   - **Few-Shot Prompting**: Para clasificar datos con base en ejemplos proporcionados.
+   - **Chain of Thought Prompting**: Para obtener un razonamiento detallado y paso a paso.
+3. Sigue las instrucciones específicas para cada técnica.
+
+### Usabilidad
+Ideal para:
+- Educación: Aprende sobre las capacidades de los modelos de lenguaje.
+- Investigación: Experimenta con técnicas avanzadas de prompting.
+- Exploración de datos: Obtén insights basados en datos cargados.
+
+¡Carga tus datos y explora el poder de las técnicas de prompting con OpenAI!
+""")
 
 # Cargar datos desde un CSV
 file_path = st.file_uploader("Sube tu archivo CSV", type=["csv"])
