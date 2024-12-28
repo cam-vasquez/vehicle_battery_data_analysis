@@ -48,5 +48,17 @@ with col5:
     else:
         st.warning(f"No se encontró la imagen en la ruta: {ruta_imagen_modelo}")
 with col6:
-    st.subheader("Modelo: K Means Clustering")
-    st.markdown("Genera predicciones y evalúa el desempeño del modelo.")
+    st.subheader("Modelos")
+    st.markdown("Uso de K Means Clustering y Árbol de Decisiones, con el fin de generar predicciones y evalúar el desempeño del modelo.")
+
+# 4. Prompting: Interacción con OpenAI
+col5, col6 = st.columns([2, 2])
+with col5:
+    ruta_imagen_modelo = "utils/picture4.png" 
+    if os.path.exists(ruta_imagen_modelo):
+        st.image(ruta_imagen_modelo, caption="Prompting", width=250)
+    else:
+        st.warning(f"No se encontró la imagen en la ruta: {ruta_imagen_modelo}")
+with col6:
+    st.subheader("Promptig")
+    st.markdown("Uso de Few - Shots Promting y Chain of Thought Promting, con el fin de interactuar con OpenAI.")
