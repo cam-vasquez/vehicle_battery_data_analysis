@@ -56,7 +56,7 @@ col5, col6 = st.columns([2, 2])
 with col5:
     ruta_imagen_modelo = "utils/picture4.png" 
     if os.path.exists(ruta_imagen_modelo):
-        st.image(ruta_imagen_modelo, caption="Prompting")
+        st.image(ruta_imagen_modelo, caption="Prompting", width=250)
     else:
         st.warning(f"No se encontró la imagen en la ruta: {ruta_imagen_modelo}")
 with col6:
