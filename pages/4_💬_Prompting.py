@@ -2,10 +2,12 @@ import openai
 import pandas as pd
 from sklearn.metrics import classification_report, accuracy_score
 import streamlit as st
+import os
+from dotenv import load_dotenv
 
-# Configuración de la API Key de OpenAI
-openai.api_key = "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"
-
+# Cargar la API Key desde el archivo .env
+load_dotenv()
+openai.api_key = os.getenv("OPENAI_API_KEY")
 # Título de la página
 st.title("Prompting con OpenAI - Few-Shot y Chain of Thought")
 
