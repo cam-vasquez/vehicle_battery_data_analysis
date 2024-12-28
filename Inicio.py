@@ -5,7 +5,7 @@ import os
 st.set_page_config(page_title="Proyecto Final", layout="wide")
 
 # Página de inicio
-st.title("Bienvenido")
+st.title("Bienvenido 👋🏻")
 
 st.markdown("""
 ### ¿Qué hace esta aplicación?
