@@ -8,8 +8,8 @@ st.set_page_config(page_title="Proyecto Final", layout="wide")
 st.title("Proyecto Final")
 st.markdown("""
 ## Bienvenido
-Este proyecto incluye las siguientes páginas:
-Esta aplicación está diseñada para explorar, analizar y modelar datos relacionados con el uso de baterías en vehículos eléctricos. Proporciona herramientas interactivas para comprender los datos, evaluar hipótesis y generar predicciones con modelos avanzados.
+Esta aplicación está diseñada para explorar, analizar y modelar datos relacionados con el uso de baterías en vehículos eléctricos. Proporciona herramientas interactivas para comprender los datos, evaluar hipótesis y generar predicciones con modelos avanzados.  
+            
 A continuación, se presentan las secciones disponibles en el proyecto:
 """)
 
