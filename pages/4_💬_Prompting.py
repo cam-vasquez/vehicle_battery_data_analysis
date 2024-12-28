@@ -5,9 +5,9 @@ import streamlit as st
 import os
 from dotenv import load_dotenv
 
-# Cargar la API Key desde el archivo .env
-load_dotenv()
-openai.api_key = os.getenv("OPENAI_API_KEY")
+# Cargar la API Key 
+openai.api_key = st.secrets["openai"]["api_key"]
+
 # Título de la página
 st.title("Prompting con OpenAI - Few-Shot y Chain of Thought")
 
