@@ -115,3 +115,92 @@ ax.set_ylabel(y_col)
 ax.set_zlabel(z_col)
 ax.set_title("Gráfico 3D con Clustering")
 st.pyplot(fig)
+
+
+# Agregar imports necesarios
+from sklearn.tree import DecisionTreeRegressor, plot_tree
+from sklearn.metrics import mean_squared_error, r2_score
+
+# Nueva sección: Árbol de Decisión
+st.header("Modelo de Árbol de Decisión")
+
+# Selección de características y variable objetivo
+st.subheader("Selecciona las características y la variable objetivo para el modelo")
+features = st.multiselect("Selecciona las características predictoras", numeric_features)
+target = st.selectbox("Selecciona la variable objetivo", numeric_features)
+
+# Verificar si hay selección válida
+if features and target:
+    X = df[features]
+    y = df[target]
+
+    # Dividir en conjunto de entrenamiento y prueba
+    from sklearn.model_selection import train_test_split
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.7, random_state=4254)
+
+    # Entrenar el modelo
+    tree_model = DecisionTreeRegressor(random_state=42)
+    tree_model.fit(X_train, y_train)
+
+    # Realizar predicciones
+    y_pred = tree_model.predict(X_test)
+
+    # Mostrar métricas del modelo
+    st.subheader("Métricas del modelo")
+    mse = mean_squared_error(y_test, y_pred)
+    r2 = r2_score(y_test, y_pred)
+    st.write(f"**Mean Squared Error (MSE):** {mse}")
+    st.write(f"**R² Score:** {r2}")
+
+    # Visualizar el árbol de decisión
+    st.subheader("Visualización del Árbol de Decisión")
+    fig, ax = plt.subplots(figsize=(20, 10))
+    plot_tree(tree_model, feature_names=features, filled=True, rounded=True, ax=ax)
+    st.pyplot(fig)
+
+else:
+    st.warning("Por favor, selecciona las características y la variable objetivo para entrenar el modelo.")
+
+# Agregar imports necesarios
+from sklearn.tree import DecisionTreeRegressor, plot_tree
+from sklearn.metrics import mean_squared_error, r2_score
+
+# Nueva sección: Árbol de Decisión
+st.header("Modelo de Árbol de Decisión")
+
+# Selección de características y variable objetivo
+st.subheader("Selecciona las características y la variable objetivo para el modelo")
+features = st.multiselect("Selecciona las características predictoras", numeric_features)
+target = st.selectbox("Selecciona la variable objetivo", numeric_features)
+
+# Verificar si hay selección válida
+if features and target:
+    X = df[features]
+    y = df[target]
+
+    # Dividir en conjunto de entrenamiento y prueba
+    from sklearn.model_selection import train_test_split
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.7, random_state=4254)
+
+    # Entrenar el modelo
+    tree_model = DecisionTreeRegressor(random_state=42)
+    tree_model.fit(X_train, y_train)
+
+    # Realizar predicciones
+    y_pred = tree_model.predict(X_test)
+
+    # Mostrar métricas del modelo
+    st.subheader("Métricas del modelo")
+    mse = mean_squared_error(y_test, y_pred)
+    r2 = r2_score(y_test, y_pred)
+    st.write(f"**Mean Squared Error (MSE):** {mse}")
+    st.write(f"**R² Score:** {r2}")
+
+    # Visualizar el árbol de decisión
+    st.subheader("Visualización del Árbol de Decisión")
+    fig, ax = plt.subplots(figsize=(20, 10))
+    plot_tree(tree_model, feature_names=features, filled=True, rounded=True, ax=ax)
+    st.pyplot(fig)
+
+else:
+    st.warning("Por favor, selecciona las características y la variable objetivo para entrenar el modelo.")
