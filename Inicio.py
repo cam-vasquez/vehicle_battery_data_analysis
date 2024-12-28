@@ -33,7 +33,7 @@ col3, col4 = st.columns([2, 2])
 with col3:
     ruta_imagen_hipotesis = "utils/idea.png"
     if os.path.exists(ruta_imagen_hipotesis):
-        st.image(ruta_imagen_hipotesis, caption="Hipótesis", width=150)
+        st.image(ruta_imagen_hipotesis, caption="Hipótesis", use_container_width=True)
     else:
         st.warning(f"No se encontró la imagen en la ruta: {ruta_imagen_hipotesis}")
 with col4:
@@ -43,11 +43,11 @@ with col4:
 # 3. Modelo: Predicciones con un modelo de árbol de decisiones
 col5, col6 = st.columns([2, 2])
 with col5:
-    ruta_imagen_modelo = "utils/picture3.gif"  # Cambiado a GIF
+    ruta_imagen_modelo = "utils/machinelearning.png"
     if os.path.exists(ruta_imagen_modelo):
-        st.image(ruta_imagen_modelo, caption="Modelo de Machine Learning", width=150)
+        st.image(ruta_imagen_modelo, caption="Modelo de Machine Learning", use_column_width=True)
     else:
         st.warning(f"No se encontró la imagen en la ruta: {ruta_imagen_modelo}")
 with col6:
-    st.subheader("Modelo: K Means Clustering")
+    st.subheader("Modelo: Predicciones con un modelo de árbol de decisiones")
     st.markdown("Genera predicciones y evalúa el desempeño del modelo.")
