@@ -18,7 +18,9 @@ col1, col2 = st.columns([2, 2])
 with col1:
     ruta_imagen_eda = "utils/picture1.png"
     if os.path.exists(ruta_imagen_eda):
-        st.image(ruta_imagen_eda, caption="Exploración de datos", width=150)
+        st.markdown('<div style="text-align: center;">', unsafe_allow_html=True)
+        st.image(ruta_imagen_eda, caption="Exploración de datos", width=250)
+        st.markdown('</div>', unsafe_allow_html=True)    
     else:
         st.warning(f"No se encontró la imagen en la ruta: {ruta_imagen_eda}")
 with col2:
@@ -30,7 +32,7 @@ col3, col4 = st.columns([2, 2])
 with col3:
     ruta_imagen_hipotesis = "utils/picture2.png"
     if os.path.exists(ruta_imagen_hipotesis):
-        st.image(ruta_imagen_hipotesis, caption="Hipótesis", width=150)
+        st.image(ruta_imagen_hipotesis, caption="Hipótesis", width=250)
     else:
         st.warning(f"No se encontró la imagen en la ruta: {ruta_imagen_hipotesis}")
 with col4:
@@ -42,7 +44,7 @@ col5, col6 = st.columns([2, 2])
 with col5:
     ruta_imagen_modelo = "utils/picture3.png" 
     if os.path.exists(ruta_imagen_modelo):
-        st.image(ruta_imagen_modelo, caption="Modelo de Machine Learning", width=150)
+        st.image(ruta_imagen_modelo, caption="Modelo de Machine Learning", width=250)
     else:
         st.warning(f"No se encontró la imagen en la ruta: {ruta_imagen_modelo}")
 with col6:
