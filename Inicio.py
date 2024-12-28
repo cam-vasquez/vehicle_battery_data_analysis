@@ -10,7 +10,8 @@ st.markdown("""
 ## Bienvenido
 Esta aplicación está diseñada para explorar, analizar y modelar datos relacionados con el uso de baterías en vehículos eléctricos. Proporciona herramientas interactivas para comprender los datos, evaluar hipótesis y generar predicciones con modelos avanzados.  
             
-A continuación, se presentan las secciones disponibles en el proyecto:
+A continuación, se presentan las secciones disponibles en el proyecto:  
+            
 """)
 
 # 1. EDA: Análisis exploratorio de datos
