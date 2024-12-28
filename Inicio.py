@@ -24,7 +24,8 @@ with col1:
     else:
         st.warning(f"No se encontró la imagen en la ruta: {ruta_imagen_eda}")
 with col2:
-    st.subheader("EDA: Análisis exploratorio de datos")
+    st.subheader("EDA")
+    st.markdown("### Análisis exploratorio de datos")
     st.markdown("Examina los datos y descubre patrones interesantes.")
 
 # 2. Hipótesis: Visualización de hipótesis
@@ -36,8 +37,9 @@ with col3:
     else:
         st.warning(f"No se encontró la imagen en la ruta: {ruta_imagen_hipotesis}")
 with col4:
-    st.subheader("Hipótesis: Visualización de hipótesis propuestas")
-    st.markdown("Evalúa diferentes hipótesis mediante gráficos interactivos.")
+    st.subheader("Hipótesis")
+    st.markdown("### Visualización de hipótesis propuestas")
+    st.markdown("Evaluación de diferentes hipótesis mediante gráficos interactivos.")
 
 # 3. Modelo: Predicciones con un modelo de árbol de decisiones
 col5, col6 = st.columns([2, 2])
@@ -49,7 +51,8 @@ with col5:
         st.warning(f"No se encontró la imagen en la ruta: {ruta_imagen_modelo}")
 with col6:
     st.subheader("Modelos")
-    st.markdown("Uso de K Means Clustering y Árbol de Decisiones, con el fin de generar predicciones y evalúar el desempeño del modelo.")
+    st.markdown("### Uso de Means Clustering y Árbol de Decisioness")
+    st.markdown("Modelos implementados con el fin de generar predicciones y evalúar el desempeño del modelo.")
 
 # 4. Prompting: Interacción con OpenAI
 col5, col6 = st.columns([2, 2])
@@ -61,4 +64,5 @@ with col5:
         st.warning(f"No se encontró la imagen en la ruta: {ruta_imagen_modelo}")
 with col6:
     st.subheader("Promptig")
-    st.markdown("Uso de Few - Shots Promting y Chain of Thought Promting, con el fin de interactuar con OpenAI.")
+    st.markdown("### Uso de Few - Shots y Chain of Thought Promtings")
+    st.markdown("Uso de differentes prompting approaches, con el fin de interactuar con OpenAI y el modelo de datos.")
