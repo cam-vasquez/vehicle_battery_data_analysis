@@ -11,9 +11,6 @@ openai.api_key = st.secrets["openai"]["api_key"]
 # Título de la página
 st.title("Prompting con OpenAI - Few-Shot y Chain of Thought")
 
-# Título de la página
-st.title("Prompting con OpenAI - Few-Shot y Chain of Thought")
-
 # Descripción introductoria
 st.markdown("""
 ### ¿Qué hace esta aplicación?
